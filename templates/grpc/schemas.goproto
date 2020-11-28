@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+{{- range $f := $.Nodes }}
+
+message {{ $f.Name }} {
+     
+}
+
+{{ -end }}
