@@ -1,12 +1,12 @@
 package templates
 
 const (
-	makeFile = `
+	MakeFile = `
 hive:
 	flutter packages pub run build_runner build
 `
 
-	mainCode = `import 'package:flutter/material.dart';
+	MainCode = `import 'package:flutter/material.dart';
 
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -34,7 +34,7 @@ class Flutter extends StatelessWidget {
 `
 
 
-	homeCode = `import 'package:flutter/material.dart';
+	HomeCode = `import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 `
 
-	appCode = `import 'package:flutter/material.dart';
+	AppCode = `import 'package:flutter/material.dart';
 
 import 'provider.dart';
 
@@ -73,7 +73,7 @@ class Binding extends InheritedWidget {
 }
 `
 
-	providerCode = `import 'package:flutter/material.dart';
+	ProviderCode = `import 'package:flutter/material.dart';
 
 import 'app.dart';
 import 'config.dart';
@@ -106,7 +106,7 @@ class Provider extends State<App> {
 }
 `
 
-configCode = `
+ConfigCode = `
 import 'package:flutter/material.dart';
 
 final themeDark = ThemeData();
@@ -128,7 +128,7 @@ class Config {
 }
 `
 
-storageCode = `import 'dart:async';
+StorageCode = `import 'dart:async';
 
 import 'package:hive/hive.dart';
 
@@ -157,7 +157,7 @@ class Storage {
   }
 }
 `
-exampleCode = `
+ExampleCode = `
 import 'package:hive/hive.dart';
 
 part 'example.g.dart';

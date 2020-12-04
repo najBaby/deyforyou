@@ -2,65 +2,67 @@ package flutter
 
 import (
 	"deyforyou/colorizer"
+	"deyforyou/internal"
+	"deyforyou/templates"
 	"fmt"
 )
 
 var (
-	flutter = []assets{
+	flutter = []internal.Assets{
 		{
-			dir: ".",
-			files: []file{
+			Dir: ".",
+			Files: []internal.File{
 				{
-					name:    "Makefile",
-					content: makeFile,
+					Name:    "Makefile",
+					Content: templates.MakeFile,
 				},
 			},
 		},
 		{
-			dir: "lib",
-			files: []file{
+			Dir: "lib",
+			Files: []internal.File{
 				{
-					name:    "main.dart",
-					content: mainCode,
+					Name:    "main.dart",
+					Content: templates.MainCode,
 				},
 			},
 		},
 		{
-			dir: "lib/screens",
-			files: []file{
+			Dir: "lib/screens",
+			Files: []internal.File{
 				{
-					name:    "home.dart",
-					content: homeCode,
+					Name:    "home.dart",
+					Content: templates.HomeCode,
 				},
 			},
 		},
 		{
-			dir: "lib/screens/core",
-			files: []file{
+			Dir: "lib/screens/core",
+			Files: []internal.File{
 				{
-					name:    "provider.dart",
-					content: providerCode,
+					Name:    "provider.dart",
+					Content: templates.ProviderCode,
 				},
 				{
-					name:    "app.dart",
-					content: appCode,
+					Name:    "app.dart",
+					Content: templates.AppCode,
 				},
 				{
-					name:    "storage.dart",
-					content: storageCode,
+					Name:    "storage.dart",
+					Content: templates.StorageCode,
 				},
 				{
-					name: "config.dart",
-					content: configCode,
+					Name:    "config.dart",
+					Content: templates.ConfigCode,
 				},
 			},
 		},
 		{
-			dir: "lib/screens/core/data",
-			files: []file{
+			Dir: "lib/screens/core/data",
+			Files: []internal.File{
 				{
-					name:    "example.dart",
-					content: exampleCode,
+					Name:    "example.dart",
+					Content: templates.ExampleCode,
 				},
 			},
 		},
@@ -70,14 +72,14 @@ var (
 // Flutter is
 func Flutter() {
 	for _, assets := range flutter {
-		err := createDir(assets.dir)
+		err := internal.CreateDir(assets.Dir)
 		if err != nil {
 			panic(err)
 		}
-		fmt.Println(colorizer.Yellow(fmt.Sprintf("Creating directory '%s' (success)", assets.dir)))
-		for _, f := range assets.files {
-			name := fmt.Sprintf("%s/%s", assets.dir, f.name)
-			err := createFile(name, f.content, nil)
+		fmt.Println(colorizer.Yellow(fmt.Sprintf("Creating directory '%s' (success)", assets.Dir)))
+		for _, f := range assets.Files {
+			name := fmt.Sprintf("%s/%s", assets.Dir, f.Name)
+			err := internal.CreateFile(name, f.Content, nil)
 			if err != nil {
 				panic(err)
 			}
